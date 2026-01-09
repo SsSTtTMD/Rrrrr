@@ -11,10 +11,9 @@
       --text:#ffffff;
       --muted:#9aa7bb;
       --accent:#0047AB;
-      --accent-strong:#0080FF;
+      --accent-2:#0080FF;
       --card: rgba(255,255,255,0.03);
       --glass: rgba(255,255,255,0.02);
-      --radius:14px;
       --max-width:1100px;
     }
 
@@ -34,12 +33,12 @@
 
     .wrap{width:100%;max-width:var(--max-width)}
 
-    /* ================= HEADER ================= */
+    /* ================= HEADER (원래 버전) ================= */
 
     .header-card{
       border-radius:18px;
       border:2px solid var(--accent);
-      padding:16px 18px;
+      padding:18px;
       background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.005));
       display:flex;
       flex-direction:column;
@@ -49,59 +48,49 @@
     .top-row{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:18px;
     }
 
     .logo-box{
-      width:108px;
-      height:72px; /* 납작하게 */
-      border-radius:12px;
+      width:132px;
+      height:132px;
+      border-radius:14px;
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(135deg,rgba(0,71,171,0.14),rgba(0,128,255,0.05));
-      border:1px solid rgba(255,255,255,0.05);
+      background:linear-gradient(135deg,rgba(0,71,171,0.12),rgba(107,224,255,0.02));
+      border:1px solid rgba(255,255,255,0.04);
     }
 
     .logo{
-      font-size:48px;
+      font-size:72px;
       font-weight:900;
-      color:var(--accent-strong);
-      line-height:1;
-    }
-
-    .logo-divider{
-      font-size:28px;
-      font-weight:600;
-      color:var(--accent);
-      opacity:.85;
-      user-select:none;
+      line-height:.95;
+      color:var(--accent-2);
     }
 
     .brand-stack{
       display:flex;
       flex-direction:column;
-      align-items:flex-start;
-      text-align:left;
-      gap:4px;
+      gap:6px;
     }
 
     .brand-main{
-      font-size:26px;
+      font-size:28px;
       font-weight:800;
-      letter-spacing:.5px;
+      letter-spacing:.6px;
     }
 
     .brand-sub{
-      font-size:16px;
+      font-size:18px;
       font-weight:700;
       color:var(--muted);
     }
 
     .divider{
       height:1px;
-      background:linear-gradient(90deg,transparent,var(--accent),transparent);
-      margin:4px 0;
+      background:linear-gradient(90deg,rgba(255,255,255,0.02),var(--accent),rgba(255,255,255,0.02));
+      margin:6px 0;
     }
 
     .click-row{
@@ -110,11 +99,11 @@
     }
 
     .click-btn{
-      padding:8px 20px;
+      padding:8px 18px;
       border-radius:10px;
-      border:2px solid var(--accent);
       background:none;
       color:var(--accent);
+      border:2px solid var(--accent);
       font-weight:700;
       cursor:pointer;
       transition:.2s ease;
@@ -133,13 +122,12 @@
     }
 
     .group-panel.open{
-      max-height:400px;
+      max-height:420px;
       opacity:1;
     }
 
     .gi-inner{
-      margin-top:10px;
-      padding:14px;
+      padding:12px;
       border-radius:10px;
       background:var(--glass);
       border:1px solid rgba(255,255,255,0.03);
@@ -148,7 +136,7 @@
       line-height:1.6;
     }
 
-    /* ================= MEMBERS ================= */
+    /* ================= MEMBERS (수정본 유지) ================= */
 
     .section-head{
       display:flex;
@@ -187,7 +175,7 @@
 
     .member-card:hover{
       transform:translateY(-6px);
-      border-color:rgba(0,71,171,0.3);
+      border-color:rgba(0,71,171,0.25);
     }
 
     .avatar{
@@ -245,16 +233,16 @@
       line-height:1.7;
     }
 
+    .anchor-offset{
+      position:relative;
+      top:-20px;
+    }
+
     footer{
       margin-top:36px;
       text-align:center;
       font-size:13px;
       color:var(--muted);
-    }
-
-    .anchor-offset{
-      position:relative;
-      top:-20px;
     }
   </style>
 </head>
@@ -268,8 +256,6 @@
       <div class="logo-box">
         <div class="logo">ꔘ ᗲ</div>
       </div>
-
-      <div class="logo-divider">|</div>
 
       <div class="brand-stack">
         <div class="brand-main">NewBit</div>
@@ -286,7 +272,7 @@
     <div id="group-panel" class="group-panel">
       <div class="gi-inner">
         <strong>NewBit</strong><br>
-        NewBit은 새로운 흐름과 감각을 비트처럼 전하는 아이돌 유닛이다.
+        NewBit(뉴빗)는 새로운 흐름과 감각을 전하는 아이돌 유닛이다.
       </div>
     </div>
   </div>
@@ -332,37 +318,21 @@
       </div>
     </section>
 
-    <!-- DETAILS -->
     <section class="details">
       <div id="seoha" class="anchor-offset"></div>
-      <article class="detail">
-        <h2>서하</h2>
-        <div class="content"></div>
-      </article>
+      <article class="detail"><h2>서하</h2><div class="content"></div></article>
 
       <div id="ondo" class="anchor-offset"></div>
-      <article class="detail">
-        <h2>온도</h2>
-        <div class="content"></div>
-      </article>
+      <article class="detail"><h2>온도</h2><div class="content"></div></article>
 
       <div id="yeongha" class="anchor-offset"></div>
-      <article class="detail">
-        <h2>영하</h2>
-        <div class="content"></div>
-      </article>
+      <article class="detail"><h2>영하</h2><div class="content"></div></article>
 
       <div id="eun" class="anchor-offset"></div>
-      <article class="detail">
-        <h2>은</h2>
-        <div class="content"></div>
-      </article>
+      <article class="detail"><h2>은</h2><div class="content"></div></article>
 
       <div id="shinwoo" class="anchor-offset"></div>
-      <article class="detail">
-        <h2>신우</h2>
-        <div class="content"></div>
-      </article>
+      <article class="detail"><h2>신우</h2><div class="content"></div></article>
     </section>
 
     <footer></footer>
