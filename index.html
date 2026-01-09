@@ -1,46 +1,63 @@
-<!-- ===== HEADER LOGO ONLY ===== -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NewBit • ꔘ ᗲ</title>
+
 <style>
 :root{
-  --blue1:#0080FF;
-  --blue2:#0047AB;
+  --bg:#000;
   --text:#ffffff;
-  --radius:18px;
+  --muted:#9aa7bb;
+  --accent:#0047AB;
+  --accent-strong:#0080FF;
+  --card: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.02);
+  --max-width:1100px;
 }
 
-/* header wrapper */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: Inter, "Noto Sans KR", system-ui;
+  background:var(--bg);
+  color:var(--text);
+  padding:36px 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.wrap{width:100%;max-width:var(--max-width)}
+
+/* ================= HEADER ================= */
+
 .nb-header{
-  width:100%;
-  max-width:1100px;
-  margin:0 auto 28px;
-  background:linear-gradient(90deg,var(--blue1),var(--blue2));
-  border-radius:var(--radius);
-  padding:18px 24px 14px; /* 납작 */
+  background:linear-gradient(90deg,var(--accent-strong),var(--accent));
+  border-radius:20px;
+  padding:18px 24px 14px;
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:12px;
+  margin-bottom:36px;
 }
 
-/* logo row */
 .nb-logo{
   display:flex;
   align-items:center;
   gap:18px;
 }
 
-/* symbol */
 .nb-symbol{
   font-size:44px;
   font-weight:900;
-  line-height:1;
-  color:#fff;
 }
 
-/* center brand */
 .nb-brand{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
   text-align:center;
 }
 .nb-brand .en{
@@ -53,15 +70,12 @@
   opacity:.85;
 }
 
-/* divider */
 .nb-line{
   width:100%;
   height:1px;
   background:rgba(255,255,255,.5);
-  margin-top:6px;
 }
 
-/* click button */
 .nb-toggle{
   background:none;
   border:none;
@@ -69,10 +83,8 @@
   font-size:14px;
   letter-spacing:.25em;
   cursor:pointer;
-  padding:6px 0;
 }
 
-/* panel */
 .nb-panel{
   max-height:0;
   overflow:hidden;
@@ -93,165 +105,151 @@
   text-align:center;
 }
 
-/* mobile */
-@media(max-width:600px){
-  .nb-symbol{font-size:36px}
-  .nb-brand .en{font-size:22px}
+/* ================= MEMBERS ================= */
+
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:26px 0 12px;
+}
+.section-head h3{
+  margin:0;
+  font-size:16px;
+  letter-spacing:2px;
+}
+.section-head .hint{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.members-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap:16px;
+}
+.member-card{
+  background:var(--card);
+  border-radius:12px;
+  padding:12px;
+  text-align:center;
+  text-decoration:none;
+  color:inherit;
+  border:1px solid rgba(255,255,255,0.02);
+  transition:.2s;
+}
+.member-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 18px 40px rgba(0,71,171,0.08);
+}
+
+.avatar{
+  width:100%;
+  aspect-ratio:1/1;
+  border-radius:10px;
+  overflow:hidden;
+}
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.member-name{
+  margin-top:10px;
+  font-weight:700;
+  font-size:15px;
+}
+
+/* ================= DETAILS ================= */
+
+.details{
+  margin-top:34px;
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+.detail{
+  background:var(--glass);
+  padding:18px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.02);
+}
+.detail h2{margin:0}
+.detail .content{
+  margin-top:12px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.anchor-offset{
+  position:relative;
+  top:-18px;
 }
 </style>
+</head>
 
-<div class="nb-header">
-  <div class="nb-logo">
-    <div class="nb-symbol">ꔘ ᗲ</div>
-    <div class="nb-brand">
-      <div class="en">NewBit</div>
-      <div class="kr">뉴빗</div>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header class="nb-header">
+    <div class="nb-logo">
+      <div class="nb-symbol">ꔘ ᗲ</div>
+      <div class="nb-brand">
+        <div class="en">NewBit</div>
+        <div class="kr">뉴빗</div>
+      </div>
     </div>
-  </div>
 
-  <div class="nb-line"></div>
+    <div class="nb-line"></div>
 
-  <button class="nb-toggle" id="nbToggle">[ CLICK ]</button>
+    <button class="nb-toggle" id="nbToggle">[ CLICK ]</button>
 
-  <div class="nb-panel" id="nbPanel">
-    <div class="nb-panel-inner">
-      <strong>NewBit</strong><br>
-      새로운 비트, 새로운 온도.<br>
-      서로 다른 감각이 하나의 울림이 되는 유닛.
+    <div class="nb-panel" id="nbPanel">
+      <div class="nb-panel-inner">
+        <strong>NewBit</strong><br>
+        새로운 비트, 새로운 온도.<br>
+        서로 다른 감각이 하나의 울림이 되는 유닛.
+      </div>
     </div>
-  </div>
+  </header>
+
+  <!-- MEMBERS -->
+  <main>
+    <section>
+      <div class="section-head">
+        <h3>MEMBERS</h3>
+        <div class="hint">카드를 클릭하면 아래 상세 정보로 이동합니다</div>
+      </div>
+
+      <div class="members-grid">
+        <a class="member-card" href="#seoha"><div class="avatar"><img src="images/seoha.jpg"></div><div class="member-name">서하</div></a>
+        <a class="member-card" href="#ondo"><div class="avatar"><img src="images/ondo.jpg"></div><div class="member-name">온도</div></a>
+        <a class="member-card" href="#yeongha"><div class="avatar"><img src="images/yeongha.jpg"></div><div class="member-name">영하</div></a>
+        <a class="member-card" href="#eun"><div class="avatar"><img src="images/eun.jpg"></div><div class="member-name">은</div></a>
+        <a class="member-card" href="#shinwoo"><div class="avatar"><img src="images/shinwoo.jpg"></div><div class="member-name">신우</div></a>
+      </div>
+    </section>
+
+    <section class="details">
+      <div id="seoha" class="anchor-offset"></div><article class="detail"><h2>서하</h2><div class="content"></div></article>
+      <div id="ondo" class="anchor-offset"></div><article class="detail"><h2>온도</h2><div class="content"></div></article>
+      <div id="yeongha" class="anchor-offset"></div><article class="detail"><h2>영하</h2><div class="content"></div></article>
+      <div id="eun" class="anchor-offset"></div><article class="detail"><h2>은</h2><div class="content"></div></article>
+      <div id="shinwoo" class="anchor-offset"></div><article class="detail"><h2>신우</h2><div class="content"></div></article>
+    </section>
+  </main>
 </div>
 
 <script>
 const t = document.getElementById('nbToggle');
 const p = document.getElementById('nbPanel');
-
-t.addEventListener('click',()=>{
-  const open = p.classList.toggle('open');
-  t.textContent = open ? '[ CLOSE ]' : '[ CLICK ]';
-});
+t.onclick = () => {
+  const o = p.classList.toggle('open');
+  t.textContent = o ? '[ CLOSE ]' : '[ CLICK ]';
+};
 </script>
-<!-- ===== /HEADER LOGO ONLY ===== →
 
-<!-- MEMBERS / Cards -->
-    <main>
-      <section>
-        <div class="section-head">
-          <h3>MEMBERS</h3>
-          <div class="hint">카드를 클릭하면 아래 상세 정보로 이동합니다</div>
-        </div>
-
-        <div class="members-grid" id="members">
-          <a class="member-card" href="#seoha">
-            <div class="avatar">
-              <img src="images/seoha.jpg" alt="서하" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22><rect width=%22600%22 height=%22600%22 fill=%22%230b0b0b%22/><text x=%2230%25%22 y=%2255%25%22 fill=%22%23aaa%22 font-size=%2240%22 font-family=%22sans-serif%22>서하</text></svg>'">
-            </div>
-            <div class="member-name">서하</div>
-            <div class="member-role"></div>
-          </a>
-
-          <a class="member-card" href="#ondo">
-            <div class="avatar">
-              <img src="images/ondo.jpg" alt="온도" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22><rect width=%22600%22 height=%22600%22 fill=%22%230b0b0b%22/><text x=%2230%25%22 y=%2255%25%22 fill=%22%23aaa%22 font-size=%2240%22 font-family=%22sans-serif%22>온도</text></svg>'">
-            </div>
-            <div class="member-name">온도</div>
-            <div class="member-role"></div>
-          </a>
-
-          <a class="member-card" href="#yeongha">
-            <div class="avatar">
-              <img src="images/yeongha.jpg" alt="영하" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22><rect width=%22600%22 height=%22600%22 fill=%22%230b0b0b%22/><text x=%2230%25%22 y=%2255%25%22 fill=%22%23aaa%22 font-size=%2240%22 font-family=%22sans-serif%22>영하</text></svg>'">
-            </div>
-            <div class="member-name">영하</div>
-            <div class="member-role"></div>
-          </a>
-
-          <a class="member-card" href="#eun">
-            <div class="avatar">
-              <img src="images/eun.jpg" alt="은" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22><rect width=%22600%22 height=%22600%22 fill=%22%230b0b0b%22/><text x=%2230%25%22 y=%2255%25%22 fill=%22%23aaa%22 font-size=%2240%22 font-family=%22sans-serif%22>은</text></svg>'">
-            </div>
-            <div class="member-name">은</div>
-            <div class="member-role"></div>
-          </a>
-
-          <a class="member-card" href="#shinwoo">
-            <div class="avatar">
-              <img src="images/shinwoo.jpg" alt="신우" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22><rect width=%22600%22 height=%22600%22 fill=%22%230b0b0b%22/><text x=%2230%25%22 y=%2255%25%22 fill=%22%23aaa%22 font-size=%2240%22 font-family=%22sans-serif%22>신우</text></svg>'">
-            </div>
-            <div class="member-name">신우</div>
-            <div class="member-role"></div>
-          </a>
-        </div>
-      </section>
-
-      <!-- DETAILS -->
-      <section class="details" id="member-details" aria-live="polite">
-        <div id="seoha" class="anchor-offset"></div>
-        <article class="detail" aria-labelledby="seoha-title">
-          <div class="title"><h2 id="seoha-title">서하</h2><div class="meta"></div></div>
-          <div class="content" id="seoha-content"><!-- 서하 상세 소개 작성 --> </div>
-        </article>
-
-        <div id="ondo" class="anchor-offset"></div>
-        <article class="detail" aria-labelledby="ondo-title">
-          <div class="title"><h2 id="ondo-title">온도</h2><div class="meta"></div></div>
-          <div class="content" id="ondo-content"><!-- 온도 상세 소개 작성 --> </div>
-        </article>
-
-        <div id="yeongha" class="anchor-offset"></div>
-        <article class="detail" aria-labelledby="yeongha-title">
-          <div class="title"><h2 id="yeongha-title">영하</h2><div class="meta"></div></div>
-          <div class="content" id="yeongha-content"><!-- 영하 상세 소개 작성 --> </div>
-        </article>
-
-        <div id="eun" class="anchor-offset"></div>
-        <article class="detail" aria-labelledby="eun-title">
-          <div class="title"><h2 id="eun-title">은</h2><div class="meta"></div></div>
-          <div class="content" id="eun-content"><!-- 은 상세 소개 작성 --> </div>
-        </article>
-
-        <div id="shinwoo" class="anchor-offset"></div>
-        <article class="detail" aria-labelledby="shinwoo-title">
-          <div class="title"><h2 id="shinwoo-title">신우</h2><div class="meta"></div></div>
-          <div class="content" id="shinwoo-content"><!-- 신우 상세 소개 작성 --> </div>
-        </article>
-      </section>
-
-      <footer></footer>
-    </main>
-  </div>
-
-  <script>
-    (function(){
-      const toggleBtn = document.getElementById('group-toggle');
-      const panel = document.getElementById('group-panel');
-
-      toggleBtn.addEventListener('click', ()=>{
-        const isOpen = panel.classList.toggle('open');
-        toggleBtn.classList.toggle('open', isOpen);
-        toggleBtn.setAttribute('aria-expanded', String(isOpen));
-        panel.setAttribute('aria-hidden', String(!isOpen));
-        // if opened, scroll into view
-        if(isOpen) panel.scrollIntoView({behavior:'smooth', block:'center'});
-      });
-
-      // Smooth anchor handling for internal links
-      const anchors = document.querySelectorAll('a[href^="#"]');
-      anchors.forEach(a=>{
-        a.addEventListener('click', (e)=>{
-          const href = a.getAttribute('href');
-          if(!href || href === '#') return;
-          const id = href.slice(1);
-          const el = document.getElementById(id);
-          if(el){
-            e.preventDefault();
-            el.scrollIntoView({behavior:'smooth', block:'start'});
-            history.replaceState(null,'','#'+id);
-          }
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
-
