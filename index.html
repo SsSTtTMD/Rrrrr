@@ -131,93 +131,9 @@ t.addEventListener('click',()=>{
   t.textContent = open ? '[ CLOSE ]' : '[ CLICK ]';
 });
 </script>
-<!-- ===== /HEADER LOGO ONLY ===== -->
-    /* MEMBERS area */
-    .section-head{ display:flex; align-items:center; justify-content:space-between; margin:26px 0 12px 0; }
-    .section-head h3{ margin:0; font-size:16px; letter-spacing:2px; color:var(--text); }
-    .section-head .hint{ color:var(--muted); font-size:13px; }
+<!-- ===== /HEADER LOGO ONLY ===== →
 
-    .members-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:16px; }
-    .member-card{ display:block; background:var(--card); border-radius:12px; padding:12px; text-align:center; text-decoration:none; color:inherit; border:1px solid rgba(255,255,255,0.02); transition:transform .18s ease, box-shadow .18s ease; }
-    .member-card:hover{ transform:translateY(-8px); box-shadow:0 18px 40px rgba(0,71,171,0.06); border-color: rgba(0,71,171,0.12); }
-    .avatar{ width:100%; aspect-ratio:1/1; border-radius:10px; overflow:hidden; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); display:flex; align-items:center; justify-content:center; }
-    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .member-name{ margin-top:10px; font-weight:700; font-size:15px; }
-    .member-role{ margin-top:6px; color:var(--muted); font-size:12px; }
-
-    .details{ margin-top:34px; display:flex; flex-direction:column; gap:22px; }
-    .detail{ background:var(--glass); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.02); }
-    .detail h2{ margin:0; font-size:20px; }
-    .detail .meta{ color:var(--muted); font-size:13px; margin-top:6px; }
-    .detail .content{ margin-top:12px; color:var(--muted); font-size:15px; line-height:1.7; min-height:48px; }
-
-    footer{ margin-top:36px; text-align:center; color:var(--muted); font-size:13px; }
-
-    @media(max-width:720px){
-      .logo-box{ width:100px; height:100px }
-      .logo{ font-size:56px }
-      .brand-main{ font-size:22px }
-      .brand-sub{ font-size:14px }
-      .names-row{ gap:8px }
-    }
-
-    /* anchor offset */
-    .anchor-offset{ position:relative; top:-18px; padding-top:18px; margin-top:-18px; }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <!-- HEADER CARD -->
-    <div class="header-card" role="banner" aria-label="NewBit header">
-      <div class="top-row">
-        <div class="logo-box" aria-hidden="true">
-          <div class="logo">ꔘ ᗲ</div>
-        </div>
-
-        <div class="brand-stack" aria-hidden="false">
-          <div class="brand-main">NewBit</div>
-          <div class="brand-sub">뉴빗</div>
-          <!-- names moved inside the same card but below the brand visual -->
-          <div style="height:8px"></div>
-        </div>
-      </div>
-
-      <!-- Names row (inside card) -->
-      <div class="names-row" aria-label="Member names">
-        <div class="name-pill">서하</div>
-        <div class="name-pill">온도</div>
-        <div class="name-pill">영하</div>
-        <div class="name-pill">은</div>
-        <div class="name-pill">신우</div>
-      </div>
-
-      <div class="divider" aria-hidden="true"></div>
-
-      <!-- CLICK button that toggles the GROUP INFO (NewBit 소개) -->
-      <div class="click-row">
-        <button id="group-toggle" class="click-btn" aria-expanded="false" aria-controls="group-panel">[CLICK]</button>
-      </div>
-
-      <!-- Collapsible group info panel inside card -->
-      <div id="group-panel" class="group-panel" aria-hidden="true">
-        <div class="gi-inner" id="group-info" role="region" aria-live="polite">
-          <!-- 기본 텍스트; 수정하려면 여기에 내용을 직접 바꾸세요 -->
-          <strong>NewBit</strong><br>
-          NewBit(뉴빗)는 신규 아이돌 유닛입니다. 이 곳에 그룹 소개 문구, 활동 정보, 콘셉트나 멤버 구성 같은 설명을 적어주세요.
-        </div>
-      </div>
-    </div>
-
-    <!-- optional small TOC for quick scroll -->
-    <nav class="toc" aria-label="Members quick navigation" style="margin-top:12px">
-      <a href="#seoha">서하</a>
-      <a href="#ondo">온도</a>
-      <a href="#yeongha">영하</a>
-      <a href="#eun">은</a>
-      <a href="#shinwoo">신우</a>
-    </nav>
-
-    <!-- MEMBERS / Cards -->
+<!-- MEMBERS / Cards -->
     <main>
       <section>
         <div class="section-head">
@@ -338,3 +254,4 @@ t.addEventListener('click',()=>{
   </script>
 </body>
 </html>
+
