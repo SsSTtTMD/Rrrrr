@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NewBit</title>
+
+<style>
+:root{
+  --blue1:#0080FF;
+  --blue2:#0047AB;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.75);
+  --radius:22px;
+  --max:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#000;
+  color:var(--text);
+  font-family: Inter, "Noto Sans KR", system-ui, sans-serif;
+  display:flex;
+  justify-content:center;
+  padding:32px 16px;
+}
+
+.wrap{width:100%;max-width:var(--max)}
+
+/* ===== HEADER ===== */
+.header{
+  background:linear-gradient(90deg,var(--blue1),var(--blue2));
+  border-radius:var(--radius);
+  padding:26px 28px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* top logo row */
+.logo-row{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+.symbol{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:900;
+  font-size:42px;
+}
+
+.symbol .bars{
+  display:grid;
+  grid-template-columns:repeat(2,6px);
+  grid-template-rows:repeat(3,10px);
+  gap:6px;
+}
+.symbol .bars span{
+  background:#fff;
+  border-radius:2px;
+}
+.symbol .three{
+  font-size:48px;
+}
+
+.divider-v{
+  width:1px;
+  height:54px;
+  background:rgba(255,255,255,.5);
+}
+
+.brand{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.brand .en{font-size:28px;font-weight:800}
+.brand .kr{font-size:18px;opacity:.85}
+
+/* names row */
+.names{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 8px 0;
+  font-weight:600;
+  letter-spacing:.2em;
+}
+
+.line{
+  height:1px;
+  background:rgba(255,255,255,.55);
+  margin-top:6px;
+}
+
+/* click button */
+.toggle-wrap{
+  display:flex;
+  justify-content:center;
+}
+.toggle{
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:16px;
+  letter-spacing:.2em;
+  cursor:pointer;
+  padding:8px 0;
+}
+
+/* hidden panel */
+.panel{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:.4s ease;
+}
+.panel.open{
+  max-height:300px;
+  opacity:1;
+  margin-top:12px;
+}
+.panel-inner{
+  background:rgba(255,255,255,.12);
+  border-radius:14px;
+  padding:16px;
+  font-size:14px;
+  line-height:1.7;
+}
+
+/* ===== MEMBERS ===== */
+.members{
+  margin-top:34px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:16px;
+}
+.member{
+  background:rgba(255,255,255,.05);
+  border-radius:14px;
+  padding:12px;
+  text-align:center;
+}
+.avatar{
+  aspect-ratio:1/1;
+  border-radius:10px;
+  background:rgba(255,255,255,.08);
+  margin-bottom:10px;
+}
+.name{font-weight:700}
+
+/* mobile */
+@media(max-width:600px){
+  .names{font-size:13px}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-row">
+      <div class="symbol">
+        <div class="bars">
+          <span></span><span></span>
+          <span></span><span></span>
+          <span></span><span></span>
+        </div>
+        <div class="three">3</div>
+      </div>
+
+      <div class="divider-v"></div>
+
+      <div class="brand">
+        <div class="en">NewBit</div>
+        <div class="kr">뉴빗</div>
+      </div>
+    </div>
+
+    <div class="names">
+      <div>서하</div>
+      <div>온도</div>
+      <div>영하</div>
+      <div>은</div>
+      <div>신우</div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="toggle-wrap">
+      <button class="toggle" id="toggleBtn">[ CLICK ]</button>
+    </div>
+
+    <div class="panel" id="panel">
+      <div class="panel-inner">
+        <strong>NewBit</strong><br>
+        NewBit은 새로운 흐름과 감각을 상징하는 유닛으로,
+        각기 다른 온도의 개성이 하나의 비트로 이어지는 그룹이다.
+      </div>
+    </div>
+  </div>
+
+  <!-- MEMBERS -->
+  <div class="members">
+    <div class="member"><div class="avatar"></div><div class="name">서하</div></div>
+    <div class="member"><div class="avatar"></div><div class="name">온도</div></div>
+    <div class="member"><div class="avatar"></div><div class="name">영하</div></div>
+    <div class="member"><div class="avatar"></div><div class="name">은</div></div>
+    <div class="member"><div class="avatar"></div><div class="name">신우</div></div>
+  </div>
+
+</div>
+
+<script>
+const btn = document.getElementById('toggleBtn');
+const panel = document.getElementById('panel');
+
+btn.addEventListener('click',()=>{
+  const open = panel.classList.toggle('open');
+  btn.textContent = open ? '[ CLOSE ]' : '[ CLICK ]';
+});
+</script>
+
+</body>
+</html>
